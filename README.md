@@ -1,4 +1,4 @@
-#Categorized dev tool
+# Categorized dev tool
 
 This is a system that categorizes web pages based on a keyword category.
 
@@ -59,6 +59,20 @@ As soon as results are ready, it will return the result with "Ready" status:
 }
 ```
 Categories are listed in "result" field.
+
+### Some additional links
+
+- http://localhost:15672/ - rabbit mq (guest/guest)
+- http://localhost:8081/ - redis commander
+
+Microservices:
+- https://github.com/kosbr/content-categorize-api-manager
+- https://github.com/kosbr/content-categorize-page-parser
+- https://github.com/kosbr/content-categorize-matcher
+
+Docker images (built by github actions):
+
+- https://hub.docker.com/repositories/kosbr?search=content
 
 ## Architecture
 
