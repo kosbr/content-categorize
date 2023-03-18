@@ -74,6 +74,9 @@ Docker images (built by github actions):
 
 - https://hub.docker.com/repositories/kosbr?search=content
 
+Categories config:
+- https://github.com/kosbr/content-categorize-matcher/blob/main/src/main/resources/application.yml
+
 ## Architecture
 
 The service is implemented using microservice architecture. Following components are used:
