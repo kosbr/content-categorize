@@ -3,6 +3,7 @@ version: '3'
 volumes:
   rabbitmq-data: {}
   redis-data: {}
+  postgresql-data: {}
 
 services:
   rabbit:
@@ -34,7 +35,31 @@ services:
     network_mode: "host"
   parser:
     image:
-      kosbr/content-categorize-page-parser:1a9eaffd560add8297aa59f03c6ddaab22c790a8
+      kosbr/content-categorize-page-parser:8ee84b4c4970cc4a0a4eb7315e73e96ebe8bb9a1
     container_name: parser
     network_mode: "host"
-   
+  api-manager:
+    image:
+      kosbr/content-categorize-api-manager:31c6779ab8a2c1692e9215ae1a21582d17127225
+    container_name: api-manager
+#    ports:
+#      - "8082:8082"    
+    network_mode: "host"
+  matcher:
+    image:
+      kosbr/content-categorize-matcher:7685fdde732f20e730816cf570cdea101b2641da
+    container_name: matcher
+    network_mode: "host"     
+  postgresql:
+    image: 
+      postgres:15
+    network_mode: "host" 
+    container_name: postgresql
+    environment:
+      - POSTGRES_PASSWORD=categorizer
+      - POSTGRES_USER=categorizer
+      - POSTGRES_DB=categorizer
+#    ports:
+#      - "5432:5432"
+    volumes:
+       - postgresql-data:/var/lib/postgresql/data
